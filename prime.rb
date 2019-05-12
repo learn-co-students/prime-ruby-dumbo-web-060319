@@ -27,7 +27,13 @@ def prime?(num)
         end
     end
 
-    
+    # IF our number is in the "not_prime_arr" array, then it's not a prime number, so return FALSE
+    if not_prime_arr.include?(num)
+        FALSE
+    else
+        # Otherwise, it's a prime number, yahoo!
+        true
+    end   
 end
 
 # This is what I have so far, We'll then have to add more functionality to in the top half of our loop.
