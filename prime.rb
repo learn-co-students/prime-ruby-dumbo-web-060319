@@ -1,22 +1,27 @@
 # Add  code here!
 def prime?(num)
+    # If we have a negative number, just return false
+    if num < 0
+        return false
+    end
+
     # Create an array from two to our given number
-    arr = Array(2..num)
+    arr = Array(2..num + 1)
 
     # Create an array to store our Non prime numbers (Empty at first)
     not_prime_arr = []
 
     # Iterate through our array
-    arr.each do |i|
+    for i in arr
         # If "i" is not a prime number, we don't know her.
         if not_prime_arr.include?(i)
             next
         end
 
         # compare the number to every other number in the array
-        arr.each do |j|
-            # continue if they're the same number
-            if i == j
+        for j in arr
+            # continue if they're the same number, or if "j" is smaller than "i"
+            if j <= i
                 next
             end
             # if our number, j, is divisible by our controlled number, i
@@ -29,14 +34,14 @@ def prime?(num)
 
     # IF our number is in the "not_prime_arr" array, then it's not a prime number, so return FALSE
     if not_prime_arr.include?(num)
-        FALSE
+        answer = false
     else
         # Otherwise, it's a prime number, yahoo!
-        true
-    end   
+        answer = true
+    end  
+    answer 
 end
 
 # This is what I have so far, We'll then have to add more functionality to in the top half of our loop.
 # that checks to see if "i" is in the array not_prime_number
 # In that case, we will just continue. "i" will only be prime numbers.
-# JAVASCRIPT MIND - WHOOPS! Continue is Next
